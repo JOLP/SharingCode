@@ -119,6 +119,24 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'templates'),
 )
+TEMPLATE_CONTEXT_PROCESSORS = (  
+   'django.contrib.auth.context_processors.auth',
+   'django.core.context_processors.debug',
+   'django.core.context_processors.i18n',
+   'django.core.context_processors.media',
+   'django.core.context_processors.static',
+   'django.core.context_processors.tz',
+   'django.contrib.messages.context_processors.messages',
+   'social.apps.django_app.context_processors.backends',
+   'social.apps.django_app.context_processors.login_redirect',
+)
+AUTHENTICATION_BACKENDS = (  
+   'social.backends.facebook.FacebookOAuth2',
+   # 'social.backends.google.GoogleOAuth2',
+   # 'social.backends.twitter.TwitterOAuth',
+   'django.contrib.auth.backends.ModelBackend',
+)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -128,9 +146,27 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'social.apps.django_app.default',
     'chat',
     # 'django.contrib.admindocs',
 )
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'http://localhost:8000/chats/'  
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+# Facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '1519138075060795'  
+SOCIAL_AUTH_FACEBOOK_SECRET = 'fed15faa407088e72cd0e4fb29a2d5f4'
+
+# Google
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
+
+# Twitter
+# SOCIAL_AUTH_TWITTER_KEY = ''
+# SOCIAL_AUTH_TWITTER_SECRET = ''
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'  
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

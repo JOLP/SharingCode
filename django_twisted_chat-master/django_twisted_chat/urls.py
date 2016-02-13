@@ -10,4 +10,5 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
      url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
      url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'template_name': 'registration/logout.html'}),
+     url(r'', include('social.apps.django_app.urls', namespace='social')),  
 )

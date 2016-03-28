@@ -13,3 +13,8 @@ It also takes a long analysis time to figure out for entire flow and there are l
 We believe that if we have a tool which can make a feedback and collaborate among students and assistants to improve among
 these inconveniences. 
 It will create a strong synergy effect for solving this problem.
+
+####How to Start
+##### 1) source myvenv/bin/activate
+##### 2) python3 manage.py runserver
+##### 3) then You can access http://127.0.0.1:8000/

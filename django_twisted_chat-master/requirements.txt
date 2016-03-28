@@ -1,2 +1,0 @@
-Django==1.5.2
-Twisted==13.1.0

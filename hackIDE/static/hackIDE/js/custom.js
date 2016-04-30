@@ -1,8 +1,8 @@
 /*
 * @Author: sahildua2305
 * @Date:   2016-01-06 01:50:10
-* @Last Modified by:   sahildua2305
-* @Last Modified time: 2016-01-18 16:55:07
+* @Last Modified by:   dongwooklee
+* @Last Modified time: 2016-05-01 00:39:39
 */
 
 
@@ -273,7 +273,7 @@ $(document).ready(function(){
 					request_ongoing = false;
 
 					// Change button text when this method is called
-					$("#run-code").html("Hack(run) it!");
+					$("#run-code").html("Run it!");
 
 					// enable button when this method is called
 					$("#compile-code").prop('disabled', false);
@@ -328,7 +328,7 @@ $(document).ready(function(){
 					request_ongoing = false;
 
 					// Change button text when this method is called
-					$("#run-code").html("Hack(run) it!");
+					$("#run-code").html("Run it!");
 
 					// enable button when this method is called
 					$("#compile-code").prop('disabled', false);
@@ -373,7 +373,7 @@ $(document).ready(function(){
 					request_ongoing = false;
 
 					// Change button text when this method is called
-					$("#run-code").html("Hack(run) it!");
+					$("#run-code").html("Run it!");
 
 					// enable button when this method is called
 					$("#compile-code").prop('disabled', false);
@@ -436,7 +436,7 @@ $(document).ready(function(){
 					request_ongoing = false;
 
 					// Change button text when this method is called
-					$("#run-code").html("Hack(run) it!");
+					$("#run-code").html("Run it!");
 
 					// enable button when this method is called
 					$("#compile-code").prop('disabled', false);

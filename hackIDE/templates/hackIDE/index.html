@@ -4,16 +4,6 @@
 <html lang="en">
     <head>
         <script src="https://togetherjs.com/togetherjs-min.js"></script>
-        <!-- Firebase -->
-        <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
-
-        <!-- CodeMirror -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.css" />
-
-        <!-- Firepad -->
-        <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css" />
-        <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
 
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,27 +24,16 @@
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrap.min.css' %}" />
 		<link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" /> 
-          <!-- Firebase -->
-          <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+        <!-- Firebase -->
+        <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 
-          <!-- ACE and its JavaScript mode and theme files -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/ace.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/mode-javascript.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/theme-textmate.js"></script>
+        <!-- ACE -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/ace.js"></script>
 
-          <!-- Firepad -->
-          <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css" />
-          <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
+        <!-- Firepad -->
+        <link rel="stylesheet" href="{% static 'hackIDE/css/firepad.css' %}" />
+        <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
 
-          <style>
-            html { height: 100%; }
-            body { margin: 0; height: 100%; position: relative; }
-            /* Height / width / positioning can be customized for your use case.
-               For demo purposes, we make firepad fill the entire browser. */
-            #firepad-container {
-              width: 100%;
-              height: 100%;
-            }
           </style>
     </head>
     <body>
@@ -80,7 +59,7 @@
     	<div class="container">
 
             <!-- Added 2016/02/23 -->
-            <p><button class="btn btn-primary btn-lg btn-block" onclick="TogetherJS(this); return false;">If you want collabraotion, CLICK HERE!</button></p>
+            
 
     		<div class="row">
 
@@ -125,7 +104,7 @@
 								<div id="inner-settings-pane"></div>
 								<label>Editor Theme</label>
 								<select class="form-control" name="editor-theme" id="editor-theme">
-									<option value="LIGHT">Light</option>
+									<option value="LIGHT" >Light</option>
 									<option value="DARK" selected>Dark</option>
 								</select>
 								<label>Indent Spaces</label>
@@ -151,8 +130,8 @@
                       var session = editor.getSession();
                       session.setUseWrapMode(true);
                       session.setUseWorker(false);
-                      //session.setMode("ace/mode/javascript");
-
+                      //session.setMode("ace/mode/cpp");
+                   
                       //// Create Firepad.
                       var firepad = Firepad.fromACE(firepadRef, editor, {
                         defaultText: '//Real Time Collaborative Editor by Lee'
@@ -199,7 +178,7 @@
     				</div>
     				<div class="pull-right run-save-panel">
 	    				<button class="btn btn-info" id="compile-code" data-toggle="tooltip" data-placement="top" title="Press Shift+Enter">Compile it!</button>
-	    				<button class="btn btn-success" id="run-code" data-toggle="tooltip" data-placement="top" title="Press Ctrl+Enter">Hack(run) it!</button>
+	    				<button class="btn btn-success" id="run-code" data-toggle="tooltip" data-placement="top" title="Press Ctrl+Enter">Run it!</button>
 	    			</div>
     			</div>
     		</div> <!-- END of row -->
@@ -254,7 +233,9 @@
     				</div>
     			</div>
     		</div>
-  
+
+            <!-- Together JS -->
+            <p><button class="btn btn-primary btn-lg btn-block" onclick="TogetherJS(this); return false;">If you want collabraotion, CLICK HERE!</button></p>
 
     	</div> <!-- END of container -->
 

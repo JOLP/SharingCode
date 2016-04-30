@@ -4,6 +4,17 @@
 <html lang="en">
     <head>
         <script src="https://togetherjs.com/togetherjs-min.js"></script>
+        <!-- Firebase -->
+        <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+
+        <!-- CodeMirror -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.css" />
+
+        <!-- Firepad -->
+        <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css" />
+        <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
+
         <meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,8 +33,29 @@
 
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrap.min.css' %}" />
-		<link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" /> 
+          <!-- Firebase -->
+          <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
 
+          <!-- ACE and its JavaScript mode and theme files -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/ace.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/mode-javascript.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.2/theme-textmate.js"></script>
+
+          <!-- Firepad -->
+          <link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.css" />
+          <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
+
+          <style>
+            html { height: 100%; }
+            body { margin: 0; height: 100%; position: relative; }
+            /* Height / width / positioning can be customized for your use case.
+               For demo purposes, we make firepad fill the entire browser. */
+            #firepad-container {
+              width: 100%;
+              height: 100%;
+            }
+          </style>
     </head>
     <body>
         <!-- Hidden input field containing CSRF token required for making AJAX calls to Django -->
@@ -104,9 +136,49 @@
 
     				</div> <!-- END of editor-topbar -->
     				
-    				<pre id="editor"></pre>
+    				<div id="editor"></div>
+
+                    <script>
+                    function init() {
+                      //// Initialize Firebase.
+                      var firepadRef = getExampleRef();
+                      // TODO: Replace above line with:
+                      // var firepadRef = new Firebase('<YOUR FIREBASE URL>');
+
+                      //// Create ACE
+                      var editor = ace.edit("editor");
+                      //editor.setTheme("ace/theme/textmate");
+                      var session = editor.getSession();
+                      session.setUseWrapMode(true);
+                      session.setUseWorker(false);
+                      //session.setMode("ace/mode/javascript");
+
+                      //// Create Firepad.
+                      var firepad = Firepad.fromACE(firepadRef, editor, {
+                        defaultText: '//Real Time Collaborative Editor by Lee'
+                      });
+                    }
+
+                    // Helper to get hash from end of URL or generate a random one.
+                    function getExampleRef() {
+                      var ref = new Firebase('blinding-torch-1748.firebaseIO.com');
+                      var hash = window.location.hash.replace(/#/g, 'hi');
+                      if (hash) {
+                        ref = ref.child(hash);
+                      } else {
+                        ref = ref.push(); // generate unique location.
+                        window.location = window.location + '#' + ref.key(); // add it as a hash to the URL.
+                      }
+                      if (typeof console !== 'undefined')
+                        console.log('Firebase data: ', ref.toString());
+                      return ref;
+                    }
+                    window.onload = init;
+
+                      </script>
 
     				<div id="editor-statusbar"></div>
+
 
     			</div>
 
@@ -182,9 +254,9 @@
     				</div>
     			</div>
     		</div>
+  
 
     	</div> <!-- END of container -->
-
 
     	<footer class="container">
 
@@ -253,3 +325,4 @@
 
     </body>
 </html>
+

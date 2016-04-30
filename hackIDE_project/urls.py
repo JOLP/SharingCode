@@ -23,7 +23,6 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('hackIDE.urls')),
-
     # Added 2016/02/22 By yunhongseog
     url(r'^', include('login.urls')),
 ]

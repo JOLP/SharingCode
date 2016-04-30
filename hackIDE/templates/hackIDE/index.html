@@ -119,14 +119,9 @@
 
                     <script>
                     function init() {
-                      //// Initialize Firebase.
+                      //// 파이어베이스 서버로부터 주소를 가져옴.
                       var firepadRef = getExampleRef();
-                      // TODO: Replace above line with:
-                      // var firepadRef = new Firebase('<YOUR FIREBASE URL>');
-
-                      //// Create ACE
                       var editor = ace.edit("editor");
-                      //editor.setTheme("ace/theme/textmate");
                       var session = editor.getSession();
                       session.setUseWrapMode(true);
                       session.setUseWorker(false);
@@ -138,15 +133,15 @@
                       });
                     }
 
-                    // Helper to get hash from end of URL or generate a random one.
+                    // 해쉬코드를 사용한 새로운 방 생성.
                     function getExampleRef() {
                       var ref = new Firebase('blinding-torch-1748.firebaseIO.com');
                       var hash = window.location.hash.replace(/#/g, 'hi');
                       if (hash) {
                         ref = ref.child(hash);
                       } else {
-                        ref = ref.push(); // generate unique location.
-                        window.location = window.location + '#' + ref.key(); // add it as a hash to the URL.
+                        ref = ref.push(); // 유니크한 새로운 장소를 푸쉬해줌.
+                        window.location = window.location + '#' + ref.key(); // 해쉬코드를 뒤에 삽입.
                       }
                       if (typeof console !== 'undefined')
                         console.log('Firebase data: ', ref.toString());

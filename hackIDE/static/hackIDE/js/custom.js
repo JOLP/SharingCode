@@ -73,7 +73,7 @@ $(document).ready(function(){
 			"C":"c",
 			"CPP":"cpp",
 			"CSHARP":"cs",
-		  "CLOJURE":"clj",
+		 	"CLOJURE":"clj",
 			"CSS":"css",
 			"HASKELL":"hs",
 			"JAVA":"java",

@@ -8,15 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KMU CodeEditor | Online Code Editor, Compiler &amp; Interpreter</title>
-    <meta name="author" content="sahildua2305" />
-    <meta property="og:url" content="http://hackide.herokuapp.com/" />
-    <meta property="og:site_name" content=" hackIDE " />
-    <meta property="og:title" content=" hackIDE | Online Code Editor, Compiler & Interpreter" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://hackide.herokuapp.com{% static 'hackIDE/img/screenshot.png' %}" />
-    <meta property="og:description" content="hackIDE is an online code editor, compiler and interpreter based on Django, powered by HackerEarth API, created by Sahil Dua! Go, hack it!" />
-    <meta name="description" content="hackIDE is an online code editor, compiler and interpreter based on Django, powered by HackerEarth API, created by Sahil Dua! Go, hack it!">
-    <meta name="keywords" content="hackide, ideone, online editor, online code editor, online code compiler, online python compiler, online code interpreter, online ide, hackerearth api ide, sahildua, sahildua2305, sahil2305dua, Sahil, Sahil Dua, Netaji Subhas Institute, New Delhi, sahil nsit, sahil collegespace, sahil developer, API developer">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" />
@@ -46,7 +37,7 @@
         </div>
     </nav>
     <div class="container">
-        <!-- Added 2016/02/23 -->
+        <!-- Added 2016/05/10 -->
         <div class="row">
             <div class="left col-md-12">
                 <div id="editor-topbar">
@@ -112,7 +103,7 @@
                 // 해쉬코드를 사용한 새로운 방 생성.
                 function getExampleRef() {
                     var ref = new Firebase('blinding-torch-1748.firebaseIO.com');
-                    var hash = window.location.hash.replace(/#/g, 'hi');
+                    var hash = window.location.hash.replace(/#/g, '');
                     if (hash) {
                         ref = ref.child(hash);
                     } else {
@@ -196,18 +187,13 @@
                 </div>
             </div>
         </div>
-        <!-- Together JS -->
-        <p>
-            <button class="btn btn-primary btn-lg btn-block" onclick="TogetherJS(this); return false;">If you want collabraotion, CLICK HERE!</button>
-        </p>
+
     </div>
     <!-- END of container -->
     <footer class="container">
-        <!-- Modifed 2016/02/23 -->
-        <!-- <span class="pull-left"> Powered by <a href="https://www.hackerearth.com/docs/api/developers/code/v3/" target="_blank">HackerEarth API</a> </span> -->
-        <!-- Added 2016/02/23 -->
+  
         <span class="pull-left"><a href="/logout">Home & Logout</a></span>
-        <span class="pull-right"> Copyrights © <a href="http://eecs.kookmin.ac.kr/site/computer/introduction.htm" target="_blank">Kookmin University Computer Science</a> 2016 | Made with <span style="color: #f7403a">&hearts;</span> in Korea </span>
+        <span class="pull-right"> Copyrights © <a href="http://eecs.kookmin.ac.kr/site/computer/introduction.htm" target="_blank">Kookmin University Computer Science</a> 2016 | Made with <span style="color: #f7403a">&hearts;</span> in 코딩9조 </span>
         <!-- Added 2016/02/22 -->
     </footer>
     <a href="https://github.com/JOLP/SharingCode" title="Fork me on GitHub" class="github-corner" target="_blank">

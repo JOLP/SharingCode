@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Django{% endblock %}
+
+{% block head %}Welcome to Kookmin University Realtime CODE Collaboration!{% endblock %}
+{% block content %}
+    <p>Welcome {{ user.username }} !!!</p>
+    <p>You can logout click <a href="/logout/">Here</a> to login page. </p>
+    <p>Also you can go to <a href="/codeedit">CodeEditor</a> </p>
+    <p>Also you can go to <a href="/chatroom">Chatroom</a> </p>
+{% endblock %}

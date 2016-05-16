@@ -16,8 +16,9 @@ import os
 # Added 2016/02/22
 # 로그인 하지 않은 유저가 로그인 할 수 있도록 로그인 페이지로 이동
 import django.contrib.auth
-django.contrib.auth.LOGIN_URL = '/'
+django.contrib.auth.LOGIN_URL = '/login'
 
+LOGIN_URL = '/login/'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -53,8 +54,10 @@ INSTALLED_APPS = [
     # hackIDE.apps.HackideConfig를 호출함. hackIDE만 호출해도 되나 이 앱에서는 apps라는 파일을 만들고 name = 'hackIDE' 를 호출함  
     'hackIDE.apps.HackideConfig',
 
-    # Added 2016/02/22
-    'login',
+    # Added 2016/05/14
+    # 'login',
+    'home',
+    'alpha',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -120,8 +123,8 @@ DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
 #         'NAME': BASE_DIR + '/loginapp.sqlite',  # Or path to database file if using sqlite3.
-#         # The following settings are not used with sqlite3:
-#         'USER': '',
+#         # The following settings are not used with sqlit#         
+#           'USER': '',
 #         'PASSWORD': '',
 #         'HOST': '',   # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
 #         'PORT': '',   # Set to empty string for default.
@@ -170,12 +173,20 @@ USE_TZ = True
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
+
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../hackIDE/static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
+STATIC_URL = '/static/'
+
+LOGIN_URL = '/login/'
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+
+# # Simplified static file serving.
+# # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

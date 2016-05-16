@@ -19,6 +19,15 @@
     <link rel="stylesheet" href="{% static 'hackIDE/css/firepad.css' %}" />
     <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
     </style>
+    <script>
+    function email()
+    {
+        var add = document.form.To.value
+        var subject = document.form.Subject.value
+        document.form.action="mailto:ldu1225@naver.com,"+add+"?subject="+subject;
+
+    }
+    </script>
 </head>
 
 <body>
@@ -189,6 +198,23 @@
         </div>
 
     </div>
+    <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">
+    <TABLE BORDER=0>
+      <TR>
+       <TD ALIGN="right"><B>받는사람:</B></TD>
+       <TD ALIGN="center"><INPUT TYPE="text" NAME="To" SIZE=30></TD>
+      </TR>
+      <TR>
+       <TD ALIGN="right"><B>URL:</B></TD>
+       <TD ALIGN="center"><INPUT TYPE="text" NAME="Subject" SIZE=30></TD>
+      </TR>
+      
+    </TD>
+      <TR>
+       <TD COLSPAN=2 ALIGN="center"><INPUT TYPE="submit" VALUE="Invite"style="height:25px; width:70px;"><INPUT TYPE="reset" VALUE="Reset Form"></TD>
+      </TR>
+    </TABLE>
+    </FORM>
     <!-- END of container -->
     <footer class="container">
   

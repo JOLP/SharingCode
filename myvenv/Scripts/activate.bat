@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\PRO13\Desktop\SharingCode-master - ½½\myvenv"
+set "VIRTUAL_ENV=C:\Users\PRO13\Desktop\jolp_final\myvenv"
 
 if not defined PROMPT (
     set "PROMPT=$P$G"

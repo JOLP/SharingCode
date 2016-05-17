@@ -5,10 +5,17 @@ from django.utils.translation import ugettext_lazy as _
  
 class RegistrationForm(forms.Form):
  
-    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Username"), error_messages={ 'invalid': _("This value must contain only letters, numbers and underscores.") })
-    email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Email address"))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password"))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password (again)"))
+    # username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30), attrs={'placeholder': 'Name'}), label=_(""), error_messages={ 'invalid': _("This value must contain only letters, numbers and underscores.") })
+    # email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_(""))
+    # password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_(""))
+    # password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_(""))
+
+    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs={'placeholder': 'ID', 'class': "input-lg" }), label=_(""), error_messages={ 'invalid': _("This value must contain only letters, numbers and underscores.") })
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'e-mail', 'class': "input-lg" }), label=_(""))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'password', 'class': "input-lg"}), label=_(""))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'password(again)', 'class': "input-lg"}), label=_(""))
+
+
 
     def clean_username(self):
         try:

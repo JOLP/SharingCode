@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KMU CodeEditor | Online Code Editor, Compiler &amp; Interpreter</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrapt.min.css' %}" />
@@ -36,6 +38,7 @@
 </head>
 
 <body>
+
     <!-- Hidden input field containing CSRF token required for making AJAX calls to Django -->
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
     <nav class="navbar navbar-default">
@@ -90,8 +93,6 @@
                                 <option value="LIGHT">Light</option>
                                 <option value="DARK" selected>Dark</option>
                             </select>
-                            <label>Indent Spaces</label>
-                            <input class="form-control" name="indent-spaces" id="indent-spaces" type="text" value="4">
                         </div>
                     </div>
                     <!-- END of settings-pane -->

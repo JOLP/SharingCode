@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="{% static 'hackIDE/css/jquery.ui.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/todo.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" />
+ 
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/animate.min.css' %}" />
+
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     <!-- ACE -->
@@ -37,21 +41,42 @@
 </head>
 
 <body>
+
     <!-- Hidden input field containing CSRF token required for making AJAX calls to Django -->
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/"> KMU CodeEditor </a>
+                <a class="navbar-brand" href="/home"> KMU CodeEditor </a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <!-- 기존 코드 -->
-                <!-- <li><a href="/"> New Code </a></li> -->
-                <li><a href="/codeedit"> New Code </a></li>
+                    <li>
+                        <a class="page-scroll" href="/home">Main</a>
+                    </li>
+                    <li>
+                        <a href='/login' class="page-scroll" href="/sign in">Sign in</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/codeedit">New Code</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/chatroom">Chat</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/Board">Board</a>
+                    </li>
+                </ul>
+
             </ul>
         </div>
     </nav>
+
+    
+
+
     <div class="container">
+
         <!-- Added 2016/05/10 -->
         <div class="row">
             <div class="left col-md-12">
@@ -202,6 +227,7 @@
         </div>
     </div>
     <!-- To do list end mod_date:2016/05/17 author :Lee -->
+
     <footer class="container">
         <div id="containert">
             <br>
@@ -242,6 +268,7 @@
             </script>
         </div>
     </footer>
+    
     <!-- To do list end author :Lee -->
     <!-- Inviting frined / mod_date : 2016/05/17 /author :Lee -->
     <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">

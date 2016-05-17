@@ -3,14 +3,21 @@
 <html lang="en">
 
 <head>
-    <script src="https://togetherjs.com/togetherjs-min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KMU CodeEditor | Online Code Editor, Compiler &amp; Interpreter</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrapt.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'hackIDE/css/jquery.ui.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/todo.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" />
+ 
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/animate.min.css' %}" />
+
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     <!-- ACE -->
@@ -18,34 +25,58 @@
     <!-- Firepad -->
     <link rel="stylesheet" href="{% static 'hackIDE/css/firepad.css' %}" />
     <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
-    </style>
+    <script type="text/javascript" src="{% static 'hackIDE/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/bootstrapt.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/jquery.ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/todo.js' %}"></script>
     <script>
-    function email()
-    {
+    function email() {
         var add = document.form.To.value
         var subject = document.form.Subject.value
-        document.form.action="mailto:ldu1225@naver.com,"+add+"?subject="+subject;
+        document.form.action = "mailto:ldu1225@naver.com," + add + "?subject=" + subject;
 
     }
     </script>
 </head>
 
 <body>
+
     <!-- Hidden input field containing CSRF token required for making AJAX calls to Django -->
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/"> KMU CodeEditor </a>
+                <a class="navbar-brand" href="/home"> KMU CodeEditor </a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <!-- 기존 코드 -->
-                <!-- <li><a href="/"> New Code </a></li> -->
-                <li><a href="/codeedit"> New Code </a></li>
+                    <li>
+                        <a class="page-scroll" href="/home">Main</a>
+                    </li>
+                    <li>
+                        <a href='/login' class="page-scroll" href="/sign in">Sign in</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/codeedit">New Code</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/chatroom">Chat</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/Board">Board</a>
+                    </li>
+                </ul>
+
             </ul>
         </div>
     </nav>
+
+    
+
+
     <div class="container">
+
         <!-- Added 2016/05/10 -->
         <div class="row">
             <div class="left col-md-12">
@@ -85,8 +116,6 @@
                                 <option value="LIGHT">Light</option>
                                 <option value="DARK" selected>Dark</option>
                             </select>
-                            <label>Indent Spaces</label>
-                            <input class="form-control" name="indent-spaces" id="indent-spaces" type="text" value="4">
                         </div>
                     </div>
                     <!-- END of settings-pane -->
@@ -196,28 +225,84 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <!-- To do list end mod_date:2016/05/17 author :Lee -->
+
+    <footer class="container">
+        <div id="containert">
+            <br>
+            <div id="header"><strong> To Do List</strong> </div>
+            <br>
+            <div class="task-list">
+                <h3>Add a task</h3>
+                <form id="todo-form">
+                    <input type="text" placeholder="What is your task?" />
+                    <textarea placeholder="Description"></textarea>
+                    <input type="text" id="datepicker" placeholder="Due Date (year/month/date)" />
+                    <input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />
+                </form>
+                <div id="delete-div">
+                    If u want to delete, <strong>Drag</strong> here!
+                </div>
+            </div>
+            <div class="task-list task-container" id="pending">
+                <h3>To do</h3>
+            </div>
+            <div class="task-list task-container" id="inProgress">
+                <h3>In Progress</h3>
+            </div>
+            <div class="task-list task-container" id="completed">
+                <h3>Completed</h3>
+            </div>
+            <div style="clear:both;"></div>
+            <script type="text/javascript">
+            $("#datepicker").datepicker();
+            $("#datepicker").datepicker("option", "dateFormat", "yy/mm/dd");
+
+            $(".task-container").droppable();
+            $(".todo-task").draggable({
+                revert: "valid",
+                revertDuration: 200
+            });
+            todo.init();
+            </script>
+        </div>
+    </footer>
+    
+    <!-- To do list end author :Lee -->
+    <!-- Inviting frined / mod_date : 2016/05/17 /author :Lee -->
     <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">
-    <TABLE BORDER=0>
-      <TR>
-       <TD ALIGN="center"><B>받는사람:</B></TD>
-       <TD ALIGN="center"><INPUT TYPE="text" NAME="To" SIZE=30></TD>
-      </TR>
-      <TR>
-       <TD ALIGN="center"><B>URL:</B></TD>
-       <TD ALIGN="center"><INPUT TYPE="text" NAME="Subject" SIZE=30></TD>
-      </TR>
-      
-    </TD>
-      <TR>
-       <TD COLSPAN=2 ALIGN="center"><INPUT TYPE="submit" VALUE="Invite"style="height:25px; width:70px;"><INPUT TYPE="reset" VALUE="Reset Form"></TD>
-      </TR>
-    </TABLE>
+        <footer class="container">
+            <script type="text/javascript">
+            //HTML로 URL넘기기 
+            function timer() {
+                $(document).ready(function() {
+                    $('#test').val(document.location.href);
+                });
+            }
+            setTimeout("timer()", 1000 * 2);    //Delay를 줘서 URL이 해퀴코드와 합쳐질때까지 기다린다.
+            
+            </script>
+            <div id="header"><strong>Invite your friends</strong> </div>
+            <br>
+            <TABLE style="border:1px solid black; margin:auto;">
+                <TR>
+                    <TD ALIGN="center">
+                        <INPUT TYPE="text" NAME="To" SIZE=30 value="Friend's email">
+                    </TD>
+                    <TD ALIGN="center">
+                        <INPUT id="test" TYPE="text" NAME="Subject" SIZE=30 VALUE="">
+                    </TD>
+                    <TR>
+                        <TD COLSPAN=2 ALIGN="center">
+                            <input type="submit" class="btn btn-primary" value="Invite" />
+                    </TR>
+                </TR>
+            </TABLE>
     </FORM>
+    </footer>
     <!-- END of container -->
     <footer class="container">
-  
         <span class="pull-left"><a href="/logout">Home & Logout</a></span>
         <span class="pull-right"> Copyrights © <a href="http://eecs.kookmin.ac.kr/site/computer/introduction.htm" target="_blank">Kookmin University Computer Science</a> 2016 | Made with <span style="color: #f7403a">&hearts;</span> in 코딩9조 </span>
         <!-- Added 2016/02/22 -->

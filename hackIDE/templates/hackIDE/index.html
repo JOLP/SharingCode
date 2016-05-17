@@ -25,17 +25,14 @@
     <script type="text/javascript" src="{% static 'hackIDE/js/bootstrapt.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'hackIDE/js/jquery.ui.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'hackIDE/js/todo.js' %}"></script>
-
     <script>
-    function email()
-    {
+    function email() {
         var add = document.form.To.value
         var subject = document.form.Subject.value
-        document.form.action="mailto:ldu1225@naver.com,"+add+"?subject="+subject;
+        document.form.action = "mailto:ldu1225@naver.com," + add + "?subject=" + subject;
 
     }
     </script>
-
 </head>
 
 <body>
@@ -204,15 +201,13 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <!-- To do list end mod_date:2016/05/17 author :Lee -->
     <footer class="container">
-
-    <div id="containert">
-<br>
-     <div id="header"><strong> To Do List</strong> </div><br>
+        <div id="containert">
+            <br>
+            <div id="header"><strong> To Do List</strong> </div>
+            <br>
             <div class="task-list">
                 <h3>Add a task</h3>
                 <form id="todo-form">
@@ -228,52 +223,51 @@
             <div class="task-list task-container" id="pending">
                 <h3>To do</h3>
             </div>
-
             <div class="task-list task-container" id="inProgress">
                 <h3>In Progress</h3>
             </div>
-
             <div class="task-list task-container" id="completed">
                 <h3>Completed</h3>
             </div>
-
-            
-
             <div style="clear:both;"></div>
             <script type="text/javascript">
-                $( "#datepicker" ).datepicker();
-                $( "#datepicker" ).datepicker("option", "dateFormat", "yy/mm/dd");
+            $("#datepicker").datepicker();
+            $("#datepicker").datepicker("option", "dateFormat", "yy/mm/dd");
 
-                $(".task-container").droppable();
-                $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
-                todo.init();
+            $(".task-container").droppable();
+            $(".todo-task").draggable({
+                revert: "valid",
+                revertDuration: 200
+            });
+            todo.init();
             </script>
-        
         </div>
-        </footer>
-        <!-- To do list end author :Lee -->
-
+    </footer>
+    <!-- To do list end author :Lee -->
     <!-- Inviting frined / mod_date : 2016/05/17 /author :Lee -->
     <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">
-    <footer class="container"><br>
-     <div id="header"><strong>Invite your friends</strong> </div><br>
-
-    <TABLE style="border:1px solid black; margin:auto;">
-      <TR>
-       <TD ALIGN="center"><INPUT TYPE="text" NAME="To" SIZE=30  value="Friend's email"></TD>
-       <TD ALIGN="center"><INPUT TYPE="text" NAME="Subject" SIZE=30 VALUE="Please copy the URL"></TD>
-       <TR>
-       <TD COLSPAN=2 ALIGN="center"><input type="submit" class="btn btn-primary" value="Invite" />
-
-
-       </TR>
-      </TR>
-    </TABLE>
+        <footer class="container">
+            <br>
+            <div id="header"><strong>Invite your friends</strong> </div>
+            <br>
+            <TABLE style="border:1px solid black; margin:auto;">
+                <TR>
+                    <TD ALIGN="center">
+                        <INPUT TYPE="text" NAME="To" SIZE=30 value="Friend's email">
+                    </TD>
+                    <TD ALIGN="center">
+                        <INPUT TYPE="text" NAME="Subject" SIZE=30 VALUE="Please copy the URL">
+                    </TD>
+                    <TR>
+                        <TD COLSPAN=2 ALIGN="center">
+                            <input type="submit" class="btn btn-primary" value="Invite" />
+                    </TR>
+                </TR>
+            </TABLE>
     </FORM>
     </footer>
     <!-- END of container -->
     <footer class="container">
-  
         <span class="pull-left"><a href="/logout">Home & Logout</a></span>
         <span class="pull-right"> Copyrights © <a href="http://eecs.kookmin.ac.kr/site/computer/introduction.htm" target="_blank">Kookmin University Computer Science</a> 2016 | Made with <span style="color: #f7403a">&hearts;</span> in 코딩9조 </span>
         <!-- Added 2016/02/22 -->

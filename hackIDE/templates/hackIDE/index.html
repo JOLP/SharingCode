@@ -247,12 +247,13 @@
     <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">
         <footer class="container">
             <script type="text/javascript">
-            function hello() {
+            //HTML로 URL넘기기 
+            function timer() {
                 $(document).ready(function() {
                     $('#test').val(document.location.href);
                 });
             }
-            setTimeout("hello()", 1000 * 2);    //Delay를 줘서 URL이 해퀴코드와 합쳐질때까지 기다린다.
+            setTimeout("timer()", 1000 * 2);    //Delay를 줘서 URL이 해퀴코드와 합쳐질때까지 기다린다.
             
             </script>
             <div id="header"><strong>Invite your friends</strong> </div>

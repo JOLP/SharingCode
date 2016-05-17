@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KMU CodeEditor | Online Code Editor, Compiler &amp; Interpreter</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrapt.min.css' %}" />
@@ -38,7 +37,6 @@
 </head>
 
 <body>
-
     <!-- Hidden input field containing CSRF token required for making AJAX calls to Django -->
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
     <nav class="navbar navbar-default">
@@ -248,7 +246,15 @@
     <!-- Inviting frined / mod_date : 2016/05/17 /author :Lee -->
     <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">
         <footer class="container">
-            <br>
+            <script type="text/javascript">
+            function hello() {
+                $(document).ready(function() {
+                    $('#test').val(document.location.href);
+                });
+            }
+            //setTimeout("hello()", 1000 * 3);    //Delay를 줘서 
+            
+            </script>
             <div id="header"><strong>Invite your friends</strong> </div>
             <br>
             <TABLE style="border:1px solid black; margin:auto;">
@@ -257,7 +263,7 @@
                         <INPUT TYPE="text" NAME="To" SIZE=30 value="Friend's email">
                     </TD>
                     <TD ALIGN="center">
-                        <INPUT TYPE="text" NAME="Subject" SIZE=30 VALUE="Please copy the URL">
+                        <INPUT id="test" TYPE="text" NAME="Subject" SIZE=30 VALUE="">
                     </TD>
                     <TR>
                         <TD COLSPAN=2 ALIGN="center">

@@ -15,7 +15,7 @@ body {
     border: 0 !important;
 }
 
-
+/* To do Container */
 #containert{
     margin: 0 auto;
     width: 1060px;
@@ -36,7 +36,7 @@ body {
     float: left;
     margin: 0 5px;
     background-color: #e3e3e3;
-    min-height: 240px;
+    min-height: 250px;
     border-radius: 10px;
     padding-bottom: 15px;
 }

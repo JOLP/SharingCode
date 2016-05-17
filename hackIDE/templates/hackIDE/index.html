@@ -3,13 +3,15 @@
 <html lang="en">
 
 <head>
-    <script src="https://togetherjs.com/togetherjs-min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KMU CodeEditor | Online Code Editor, Compiler &amp; Interpreter</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/bootstrapt.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'hackIDE/css/jquery.ui.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/todo.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" />
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
@@ -18,7 +20,12 @@
     <!-- Firepad -->
     <link rel="stylesheet" href="{% static 'hackIDE/css/firepad.css' %}" />
     <script src="https://cdn.firebase.com/libs/firepad/1.3.0/firepad.min.js"></script>
-    </style>
+    <script type="text/javascript" src="{% static 'hackIDE/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/bootstrapt.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/jquery.ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'hackIDE/js/todo.js' %}"></script>
+
     <script>
     function email()
     {
@@ -28,6 +35,7 @@
 
     }
     </script>
+
 </head>
 
 <body>
@@ -198,23 +206,68 @@
         </div>
 
     </div>
+
+    <!-- To do list end mod_date:2016/05/17 author :Lee -->
+    <footer class="container">
+
+    <div id="containert">
+     <div id="header"><strong> To Do List</strong> </div>
+            <div class="task-list">
+                <h3>Add a task</h3>
+                <form id="todo-form">
+                    <input type="text" placeholder="What is your task?" />
+                    <textarea placeholder="Description"></textarea>
+                    <input type="text" id="datepicker" placeholder="Due Date (year/month/date)" />
+                    <input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />
+                </form>
+                <div id="delete-div">
+                    DELETE
+                </div>
+            </div>
+            <div class="task-list task-container" id="pending">
+                <h3>To do</h3>
+            </div>
+
+            <div class="task-list task-container" id="inProgress">
+                <h3>In Progress</h3>
+            </div>
+
+            <div class="task-list task-container" id="completed">
+                <h3>Completed</h3>
+            </div>
+
+            
+
+            <div style="clear:both;"></div>
+            <script type="text/javascript">
+                $( "#datepicker" ).datepicker();
+                $( "#datepicker" ).datepicker("option", "dateFormat", "yy/mm/dd");
+
+                $(".task-container").droppable();
+                $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
+                todo.init();
+            </script>
+        
+        </div>
+        </footer>
+        <!-- To do list end author :Lee -->
+
+    <!-- Inviting frined / mod_date : 2016/05/17 /author :Lee -->
     <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">
-    <TABLE BORDER=0>
+    <footer class="container">
+     <div id="header"><strong>Invite your friends</strong> </div>
+
+    <TABLE style="border:1px solid black; margin:auto;">
       <TR>
-       <TD ALIGN="center"><B>받는사람:</B></TD>
-       <TD ALIGN="center"><INPUT TYPE="text" NAME="To" SIZE=30></TD>
-      </TR>
-      <TR>
-       <TD ALIGN="center"><B>URL:</B></TD>
-       <TD ALIGN="center"><INPUT TYPE="text" NAME="Subject" SIZE=30></TD>
-      </TR>
-      
-    </TD>
-      <TR>
-       <TD COLSPAN=2 ALIGN="center"><INPUT TYPE="submit" VALUE="Invite"style="height:25px; width:70px;"><INPUT TYPE="reset" VALUE="Reset Form"></TD>
+       <TD ALIGN="center"><INPUT TYPE="text" NAME="To" SIZE=30  value="Friend's email"></TD>
+       <TD ALIGN="center"><INPUT TYPE="text" NAME="Subject" SIZE=30 VALUE="Please copy the URL"></TD>
+       <TR>
+       <TD COLSPAN=2 ALIGN="center"><INPUT TYPE="submit" VALUE="Invite"style="height:25px; width:70px;"></INPUT>
+       </TR>
       </TR>
     </TABLE>
     </FORM>
+    </footer>
     <!-- END of container -->
     <footer class="container">
   

@@ -10,10 +10,12 @@ class RegistrationForm(forms.Form):
     # password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_(""))
     # password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_(""))
 
-    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs={'placeholder': 'ID', 'class': "input-lg" }), label=_(""), error_messages={ 'invalid': _("This value must contain only letters, numbers and underscores.") })
-    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'e-mail', 'class': "input-lg" }), label=_(""))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'password', 'class': "input-lg"}), label=_(""))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'password(again)', 'class': "input-lg"}), label=_(""))
+    username = forms.RegexField(regex=r'^\w+$', 
+        widget=forms.TextInput(attrs={'placeholder': 'ID', 'class': "input-lg"}), 
+        label=_(""), error_messages={ 'invalid': _("This value must contain only letters, numbers and underscores.") })
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'e-mail', 'class': "input-lg", 'size': 50 }), label=_(""))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'password', 'class': "input-lg", 'size': 50}), label=_(""))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'password(again)', 'class': "input-lg", 'size': 50}), label=_(""))
 
 
 

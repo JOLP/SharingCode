@@ -4,6 +4,60 @@
  Registration Completed Successfully
 {% endblock %}
 {% block content %}
-    Thank you for registering.
-    <a href="/login">Login</a> 
+<!--     Thank you for registering.
+    <a href="/login">Login</a>  -->
+<!--     <div class="jumbotron" style="background-color">
+  <div class="container">
+    <h1>Hello, world!</h1>
+  <p>HIHIHIHIHIHI</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button" >Learn more</a></p>
+  </div>
+</div> -->
+
+
+<div class="top-content">
+            
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Kookmin University</strong> Code Editor</h1>
+                            <div class="description">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h2>Congratulation!</h2>
+                                    <h3>Start <strong>Code Editor</strong></h3>
+
+                                </div>
+                                <div class="form-top-right">
+                                    <i class="fa fa-key"></i>
+                                </div>
+                            </div>
+
+                             <div class="form-bottom">
+                                <form role="form" action="." method="post" class="login-form">{% csrf_token %}
+                                    
+                                    <button type="submit" class="btn" style="width:480px">CLICK ME!</button>
+                                    <input type="hidden" name="next" value="/home" />
+                                    </form>
+                                                                       
+                                    
+                                </form>             
+                            </div>
+                            </div>
+								            </div>
+						              </div>
+                    </div>
+                                              
+                </div>
+
+
 {% endblock %}
+
+

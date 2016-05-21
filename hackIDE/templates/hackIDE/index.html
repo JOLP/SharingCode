@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'hackIDE/css/jquery.ui.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/todo.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/custom.css' %}" />
- 
+
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/font-awesome.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'hackIDE/css/animate.min.css' %}" />
 
@@ -30,6 +30,7 @@
     <script type="text/javascript" src="{% static 'hackIDE/js/bootstrapt.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'hackIDE/js/jquery.ui.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'hackIDE/js/todo.js' %}"></script>
+
     <script>
     function email() {
         var add = document.form.To.value
@@ -41,6 +42,43 @@
 </head>
 
 <body>
+    <script type="text/javascript">
+        function toggleDiv(divId) {
+            $("#"+divId).toggle();
+        }
+    </script>
+
+    <!-- End of StatCounter Code for Default Guide -->
+    <div id="chat-body" class="panel panel-default" style= "display: none;">
+        <div class="panel-heading">Chat Box</div>
+        <div id="msg-list-div" class="panel-body">
+            <ul id="msg-list" class="list-group">
+                {% for obj in chat %}
+                    {% if obj.user == request.user %}
+                        <li class="text-right list-group-item">{{ obj.message }}</li>
+                    {% else %}
+                        <li class="text-left list-group-item">{{ obj.message }}</li>
+                    {% endif %}
+                {% empty %}
+                    <li class="text-right list-group-item">No messages yet!</li>
+                {% endfor %}
+                <script>
+                    var chatlist = document.getElementById('msg-list-div');
+                    chatlist.scrollTop = chatlist.scrollHeight;
+                </script>
+            </ul>
+        </div>
+        <form id="chat-form" method="post" action="/post/">
+        <div class="input-group">
+            <input type="text" id="chat-msg" name="chat-msg" class="form-control"/>
+            <span class="input-group-btn">
+                <input class="btn btn-default" id="send" type="submit" value="Send"/>
+            </span>
+        </div>
+        </form>
+    </div>
+
+
 
     <!-- Hidden input field containing CSRF token required for making AJAX calls to Django -->
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
@@ -49,6 +87,9 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/home"> KMU CodeEditor </a>
+            </div>
+            <div>
+                <a href="javascript:toggleDiv('chat-body');" style="background-color: #ccc; padding: 5px 10px;">Show ChatRoom</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -72,7 +113,7 @@
         </div>
     </nav>
 
-    
+
 
 
     <div class="container">
@@ -268,20 +309,20 @@
             </script>
         </div>
     </footer>
-    
+
     <!-- To do list end author :Lee -->
     <!-- Inviting frined / mod_date : 2016/05/17 /author :Lee -->
     <FORM METHOD="post" NAME="form" ACTION="" onSubmit="email();return true" ENCTYPE="text/plain">
         <footer class="container"><br>
             <script type="text/javascript">
-            //HTML로 URL넘기기 
+            //HTML로 URL넘기기
             function timer() {
                 $(document).ready(function() {
                     $('#test').val(document.location.href);
                 });
             }
             setTimeout("timer()", 1000 * 2);    //Delay를 줘서 URL이 해퀴코드와 합쳐질때까지 기다린다.
-            
+
             </script>
             <div id="header"><strong>Invite your friends</strong> </div>
             <br>
@@ -323,11 +364,11 @@
             color: #ffffff;
             fill: #000000;
         }
-        
+
         .github-corner:hover .octo-arm {
             animation: octocat-wave .56s;
         }
-        
+
         @keyframes octocat-wave {
             0%,
             100% {
@@ -385,7 +426,7 @@
             <a title="site stats" href="http://statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/9940142/0/b0991b09/1/" alt="site stats"></a>
         </div>
     </noscript>
-    <!-- End of StatCounter Code for Default Guide -->
 </body>
+ <script src="/static/js/chat.js"></script>
 
 </html>

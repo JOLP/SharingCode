@@ -32,7 +32,9 @@ def Logout(request):
     return HttpResponseRedirect('/login/')
 
 def Chatroom(request):
-    c = Chat.objects.all()
+    queryset = Chat.objects.all()
+    count = queryset.count()
+    c = Chat.objects.all()[count-3:]
     return render(request, "alpha/chatroom.html", {'chatroom': 'active', 'chat': c})
 
 def Post(request):
@@ -46,7 +48,9 @@ def Post(request):
         return HttpResponse('Request must be POST.')
 
 def Messages(request):
-    c = Chat.objects.all()
+    queryset = Chat.objects.all()
+    count = queryset.count()
+    c = Chat.objects.all()[count-3:]
     return render(request, 'alpha/messages.html', {'chat': c})
 
 @csrf_protect

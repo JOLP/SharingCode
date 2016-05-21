@@ -3,22 +3,41 @@
 
 {% block head %}Welcome to Kookmin University Realtime Code Collaboration!{% endblock %}
 
-<html>
-	<head>
-		<title>Welcome</title>
-	</head>
-</html>
 {% block content %}
-	<br><br>
-    <font color="white"><h2><strong>Kookmin University</strong></font> 
-    <font color="FF6600">Code Editor</h2></strong></font>
-    <br>
-    <font color="white"><h1><p>Welcome to</font>   
-    <strong><font color="FF6600">{{ user.username }}</strong></p></h1></font>
-    <br>  
-    <font color="white"><h2><p>CLICK -> </font><strong><a href="/codeedit"><font color="FF0000">CodeEditor</a></strong></p></h2></font>
+	
+    <!-- <font color="white"><h2><strong>Kookmin University</strong></font>  -->
+    <!-- <font color="FF6600">Code Editor</h2></strong></font> -->
+    <br><br><br>
+    <font color="white"><font size="5">Welcome to</font>   
+    <font color="FF6600" size="5"><strong>&nbsp;{{ user.username }}</strong></p></h1></font>
+    
+    <!-- <font color="white"><h2><p>CLICK -> </font><strong><a href="/codeedit"><font color="FF0000">CodeEditor</a></strong></p></h2></font> -->
     <!-- <p>Also You can logout click <a href="/logout/">Here</a> to login page</p>
     <p>Also you can go to <a href="/codeedit">CodeEditor</a> </p>
     <p>Also you can go to <a href="/chatroom">Chatroom</a> </p> -->
+
+    <!-- ===================================================================================================================== -->
+
+   
+    <header>
+    <center>
+        <div class="header-content">
+            <div class="header-content-inner">
+            <hr style="width:30% ; border: solid 2px #FF6600 ">
+            <br>
+                <p style="font-color:#FFFFFF; font-size:50px"><font color="white">Of The <strong>C</strong>oding <br><br> 
+                By The <strong>C</strong>oding <br><br> 
+                For The <strong>C</strong>oding</p>
+                <br>
+            <hr style="width:30%  ; border: solid 2px #FF6600 ">
+                <font size="5" color="white">코딩<strong>9</strong>조</font>
+                
+                
+            </div>
+        </div>
+        </center>
+    </header>
+
+
 {% endblock %}
 

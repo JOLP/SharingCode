@@ -17,7 +17,7 @@
 
 <body>
     <div id="chat-body" class="panel panel-default">
-        <div class="panel-heading">Chat Box</div>
+        <!-- <div class="panel-heading">Chat Box</div> -->
         <div id="msg-list-div" class="panel-body">
             <ul id="msg-list" class="list-group">
                 {% for obj in chat %}
@@ -48,5 +48,45 @@
 </body>
 
 <script src="/static/js/chat.js"></script>
+
+<!-- =========================================2016/5/20 Add Top Bar=======================================  --> 
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                   
+                </button>
+                <a class="navbar-brand page-scroll" href="http://kookmin.ac.kr">Kookmin.Univ</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="/home">Main</a>
+                    </li>
+                    <li>
+                        <a href='/login' class="page-scroll" href="/sign in">Sign in</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/codeedit">Code Edit</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/chatroom">Chat</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/Board">Board</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 
 </html>

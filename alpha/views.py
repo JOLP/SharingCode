@@ -50,7 +50,7 @@ def Post(request):
 def Messages(request):
     queryset = Chat.objects.all()
     count = queryset.count()
-    c = Chat.objects.all()[count-3:]
+    c = Chat.objects.all()[count-5:]
     return render(request, 'alpha/messages.html', {'chat': c})
 
 @csrf_protect

@@ -34,7 +34,7 @@ def Logout(request):
 def Chatroom(request):
     queryset = Chat.objects.all()
     count = queryset.count()
-    c = Chat.objects.all()[count-3:]
+    c = Chat.objects.all()
     return render(request, "alpha/chatroom.html", {'chatroom': 'active', 'chat': c})
 
 def Post(request):

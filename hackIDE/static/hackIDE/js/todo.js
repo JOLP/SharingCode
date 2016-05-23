@@ -157,7 +157,7 @@ data = data || {};
 
     todo.add = function() {
         var inputs = $("#" + defaults.formId + " :input"),
-            errorMessage = "Title can not be empty",
+            errorMessage = "Coding 9 :Title can not be empty",
             id, title, description, date, tempData;
 
         if (inputs.length !== 4) {
@@ -226,10 +226,6 @@ data = data || {};
         });
     };
 
-    todo.clear = function () {
-        data = {};
-        localStorage.setItem("todoData", JSON.stringify(data));
-        $("." + defaults.todoTask).remove();
-    };
+
 
 })(todo, data, jQuery);

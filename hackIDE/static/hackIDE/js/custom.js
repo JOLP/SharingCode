@@ -13,7 +13,7 @@ $(document).ready(function(){
 	// language selected
 	var languageSelected = "CPP";
 	// editor-theme
-	var editorThemeSelected = "DARK";
+	var editorThemeSelected = "LIGHT";
 	// indent-spaces
 	var indentSpaces = 4;
 
@@ -32,7 +32,7 @@ $(document).ready(function(){
 	var editor = ace.edit("editor");
 
 	// initial configuration of the editor
-	editor.setTheme("ace/theme/twilight");
+	editor.setTheme("ace/theme/dawn");
 	editor.session.setMode("ace/mode/c_cpp");
 	editor.getSession().setTabSize(indentSpaces);
 	editorContent = editor.getValue();
